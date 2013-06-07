@@ -20,6 +20,11 @@ module YmMessages
           copy_file "models/#{file_name}", "app/models/#{file_name}"
         end
         
+        Dir[File.dirname(__FILE__) + '/templates/controllers/*.rb'].each do |file_path|
+          file_name = file_path.split("/").last          
+          copy_file "controllers/#{file_name}", "app/controllers/#{file_name}"
+        end
+        
         # Migrations must go last
         Dir[File.dirname(__FILE__) + '/templates/migrations/*.rb'].each do |file_path|
           file_name = file_path.split("/").last
