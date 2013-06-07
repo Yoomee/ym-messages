@@ -1,0 +1,8 @@
+= YmMessages
+
+Made some changes from private messaging on elephant:
+
+- changed not_read column on thread_participants to read
+- changed no_private_messages column on users to no_private_messaging
+
+This project rocks and uses MIT-LICENSE.
