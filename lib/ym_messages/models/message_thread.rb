@@ -24,7 +24,7 @@ module YmMessages::MessageThread
       user_ids = user_ids.flatten.uniq
       existing_threads = MessageThread.scoped
       user_ids.each_with_index do |user_id,idx|
-        existing_threads = existing_threads.joins("INNER JOIN thread_users AS tp#{idx} ON tp#{idx}.message_thread_id = message_threads.id AND tp#{idx}.user_id = #{user_id}").readonly(false)
+        existing_threads = existing_threads.joins("INNER JOIN message_thread_users AS tp#{idx} ON tp#{idx}.message_thread_id = message_threads.id AND tp#{idx}.user_id = #{user_id}").readonly(false)
       end
       existing_threads.reject!{|t| t.user_ids.sort != user_ids.sort}
       existing_threads.first || new(:user_ids => user_ids)
