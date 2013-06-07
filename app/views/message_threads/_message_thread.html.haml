@@ -1,0 +1,14 @@
+%li
+  =link_to thread, :class=>"message-list-item #{unread_class(thread, current_user)}" do
+    .message-summary-inner
+      .message-user-photo
+        =image_for(thread.user_for_last_message(current_user), "60x60#")
+      %h3.message-user-name
+        =participant_names(thread)
+      %p.message-summary
+        -if thread.last_message.user == current_user
+          &larr;
+        =strip_tags(thread.last_message.text.truncate(65))
+    %p.message-time
+      =time_ago_in_words(thread.last_message.created_at)
+      ago

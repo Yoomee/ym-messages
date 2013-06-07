@@ -1,0 +1,6 @@
+<%if @user.valid?%>
+  $('#message-switch-text').html('<%=escape_javascript(switch_text(@user))%>');
+  $('#message-settings-modal').modal('hide');
+<%end%>
+$('#message-settings-modal').replaceWith('<%=escape_javascript(render("messages/settings_modal"))%>');
+YmCore.Forms.LoadingText.init()
