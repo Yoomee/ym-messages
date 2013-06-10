@@ -49,7 +49,7 @@ module YmMessages::MessageThread
   end
 
   def is_unread?(user)
-    !thread_usersuser.where(:user_id => user.id).first.read?
+    !thread_users.where(:user_id => user.id).first.read?
   end
   
   def user_for_last_message(current_user)
