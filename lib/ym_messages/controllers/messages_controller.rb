@@ -1,4 +1,8 @@
 module YmMessages::MessagesController
+
+  def self.included(base)
+    base.load_and_authorize_resource :except => :update_settings
+  end
   
   def create
     @message.user = current_user

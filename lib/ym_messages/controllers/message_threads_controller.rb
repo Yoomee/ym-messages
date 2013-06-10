@@ -1,5 +1,9 @@
 module YmMessages::MessageThreadsController
-  
+
+  def self.included(base)
+    base.load_and_authorize_resource
+  end
+
   def index
     @message_threads = current_user.threads.message_threads.paginate(:per_page => 50, :page => params[:page])
   end
