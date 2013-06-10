@@ -21,7 +21,7 @@ module YmMessages::MessageThread
       thread.save
       thread
     end
-    
+
     def find_or_initialize_by_user_ids(*user_ids)
       user_ids = user_ids.flatten.uniq
       existing_threads = MessageThread.scoped
