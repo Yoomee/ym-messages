@@ -6,9 +6,9 @@
       %h3.message-user-name
         =user_names(thread)
       %p.message-summary
-        -if thread.last_message.user == current_user
+        -if thread.messages.last.user == current_user
           &larr;
-        =strip_tags(thread.last_message.text.truncate(65))
+        =strip_tags(thread.messages.last.text.truncate(65))
     %p.message-time
-      =time_ago_in_words(thread.last_message.created_at)
+      =time_ago_in_words(thread.messages.last.created_at)
       ago
