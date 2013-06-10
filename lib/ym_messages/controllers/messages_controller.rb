@@ -7,13 +7,13 @@ module YmMessages::MessagesController
   def create
     @message.user = current_user
     if @message.save
-      flash[:notice] = "Your message has been sent"
+      flash[:notice] = 'Your message has been sent'
       redirect_to @message.thread
     elsif @message.thread
       @message_thread = @message.thread
       @messages = @message_thread.messages.reorder('messages.created_at DESC').paginate(:per_page => 10, :page => params[:page]).reverse
       @last_message = @messages.last
-      render :template => "message_threads/show"
+      render :template => 'message_threads/show'
     else
       render :action => 'new'
     end
@@ -27,7 +27,7 @@ module YmMessages::MessagesController
         @message = @message_thread.messages.build
         @messages = @message_thread.messages.reorder('messages.created_at DESC').paginate(:per_page => 10, :page => params[:page]).reverse
         @last_message = @messages.last
-        render :template => "message_threads/show"
+        render :template => 'message_threads/show'
       else
         @message.recipient_ids = [recipient.id.to_s]
       end
