@@ -4,7 +4,7 @@
       .message-user-photo
         =image_for(thread.user_for_last_message(current_user), "60x60#")
       %h3.message-user-name
-        =participant_names(thread)
+        =user_names(thread)
       %p.message-summary
         -if thread.last_message.user == current_user
           &larr;
