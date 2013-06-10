@@ -1,0 +1,267 @@
+.messages-header {
+  background: #003377;
+  color: #fff;  
+  float: left;
+  width: 100%;
+  height: 70px;
+  
+  -moz-border-radius-topleft:3px;
+    -moz-border-radius-topright:3px;
+    -webkit-border-top-right-radius:3px;
+    -webkit-border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    border-top-left-radius:3px;
+
+}
+
+h2.messages-title {
+  color: #fff;
+  float: left;
+  line-height: 1;
+  font-size: 28px;
+  margin: 20px;
+  
+}
+
+
+.no-messages {
+  padding: 20px;
+  height: 200px;
+  display: block;
+ }
+.write-message {
+ float: right;
+ margin: -30px 30px 0; 
+}
+a.new-message-btn, a.new-message-btn:hover {
+  float: right;
+  background: #ffcc00;
+  margin: 15px;
+
+}
+.messages-list-wrap {
+  float: left;
+  width: 100%;
+}
+ul.messages-list {
+  margin: 0;
+}
+.message-list-item {
+  display: block;
+  float: left;
+  width: 100%;
+  position: relative;
+  border-bottom: 1px solid #ccc;
+}
+
+.message-list-item.unread {
+  background: #FFF7D9;
+}
+
+.message-list-item:hover {
+  text-decoration: none;
+  background: #fafafa;
+}
+
+.message-summary-inner {
+  float: left;
+  margin: 10px;
+  width: 600px;
+}
+
+.message-user-photo {
+  float: left;
+  width: 60px;
+  margin: 0 10px 0 0;
+}
+.message-user-photo img {
+  width: 60px;
+}
+h3.message-user-name {
+  float: left;
+  font-size: 18px;
+  margin: 8px 0 3px;
+  line-height: 1;
+  width: 100%;
+  
+    width: 75%;
+  height: 22px;
+  overflow: hidden;
+}
+
+.message-summary {
+  color: #999;
+  float: left;
+  display: block;
+  margin: 0;
+  width: 75%;
+  height: 20px;
+  overflow: hidden;
+}
+.message-time {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: #999;
+}
+.message .message-time {
+  top: 0px;
+  right: -40px;
+}
+
+.all-messages-strip {
+  float: left;
+  width: 100%;
+
+}
+.message-show {
+  float: left;
+  width: 100%;
+}
+.all-messages-link {
+  display: block;
+  padding: 20px 20px 0;
+}
+.all-messages-link:hover {
+  text-decoration: none;
+}
+.message-inner {
+  margin: 20px;
+  float: left;
+}
+.message {
+  float: left;
+  clear: both;
+  margin: 0 40px 20px 80px;
+  padding: 0 0 10px;
+  width: 460px;
+
+  position: relative;
+}
+form#new_message {
+  margin-left: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.message .message-user-photo {
+  position: absolute;
+  margin: 0;
+  top: 10px;
+  left: -80px;
+}
+.message-body {
+  float: left;
+  clear: both;
+}
+.date-divider {
+  float: left;
+  width: 100%;
+  margin: 0 0 20px;
+  position: relative;
+}
+.date-divider-line {
+  border-top: 1px solid #ccc;
+  float: left;
+  width: 100%;
+  margin: 10px 0 0;
+}
+.message-date {
+  color: #999;
+  background: #fff;
+  position: absolute;
+  left: 40%;
+  padding: 0 5px;
+}
+
+.reply-box {
+  float: left;
+  width: 100%;
+  background: #f5f5f5;
+  border-top: 1px solid #e8e8e8;
+}
+.reply-box-inner {
+  margin: 20px 20px;
+}
+.reply-form {
+  
+}
+#message_recipient_ids{
+  width:100%;
+}
+#message_recipient_ids_chzn ul{
+  background-color: #ffffff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear .2s, box-shadow linear .2s;
+  -moz-transition: border linear .2s, box-shadow linear .2s;
+  -o-transition: border linear .2s, box-shadow linear .2s;
+  transition: border linear .2s, box-shadow linear .2s;
+}
+.reply-field{
+  width: 98%;
+  float: right;
+  margin: 0 0 10px;
+}
+#new-message-popup .reply-field {
+  height: 100px;
+}
+.attach {
+  float: left;
+}
+
+ul.attach-message li {
+  float: left;
+  clear: none;
+  
+}
+
+.attach-link {
+  float: left;
+  color: #666;
+}
+.attach-link:hover {
+  text-decoration: none;
+}
+.attach-link i {
+  line-height: 16px;
+}
+.message-reply-btn {
+  float: right;
+  margin: 0 0 20px;
+  padding: 5px 20px;
+  
+}
+input.to-box {
+  width: 97%;
+  margin-bottom: 20px;
+  float: left;
+}
+.new-message-form {
+  margin: 20px;
+}
+
+.message-toggle-btn {
+  float: right;
+  background: #eeeeee;
+  color: #000000;
+  margin: 0 0 20px;
+  padding: 5px 20px;
+  font-size: 15px;
+}
+.message-switch p {
+  width: 70%;
+}
+
+.message-switch {
+  margin-top: 20px;
+  clear: both;
+}
+#message-settings-modal .btn-group button {
+  cursor: hand;
+}
