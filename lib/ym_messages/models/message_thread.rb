@@ -31,17 +31,9 @@ module YmMessages::MessageThread
       existing_threads.reject!{|t| t.user_ids.sort != user_ids.sort}
       existing_threads.first || new(:user_ids => user_ids)
     end
-    
+
   end
-  
-  def last_message
-    messages.last
-  end
-  
-  def last_message_for(user)
-    messages.last
-  end
-  
+
   def set_read!(user)
     thread_users.where(:user_id => user.id).first.set_read!
   end
