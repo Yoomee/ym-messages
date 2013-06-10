@@ -21,7 +21,7 @@
       -if @message_threads.empty?
         %span.no-messages
           %p.mt-1 You have no messages.
-          =image_tag "write-message.png", :class=>"write-message"
+          =image_tag "ym_messages/write-message.png", :class=>"write-message"
       -else
         %ul.messages-list.unstyled
           =render 'message_threads/message_threads', :message_threads => @message_threads
