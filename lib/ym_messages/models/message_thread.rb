@@ -39,7 +39,7 @@ module YmMessages::MessageThread
   end
   
   def last_message_for(user)
-   messages.last
+    messages.last
   end
   
   def set_read!(user)
