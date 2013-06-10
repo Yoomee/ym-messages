@@ -27,7 +27,7 @@ module YmMessages::Message
   def send_emails
     thread.users.where('user_id != ?', user.id).each do |user|
       thread.set_unread!(user)
-      UserMailer.new_message(self, user).deliver if user.email_for_new_message?
+      YmMessages::UserMailer.new_message(self, user).deliver if user.email_for_new_message?
     end
   end
 
