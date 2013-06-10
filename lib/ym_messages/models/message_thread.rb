@@ -53,18 +53,13 @@ module YmMessages::MessageThread
   def is_unread?(user)
     !thread_users.where(:user_id => user.id).first.read?
   end
-  
+
   def user_for_last_message(current_user)
-    if messages.last.user == current_user
-      if (thread_user = thread_users.where("user_id <> ?", current_user.id).first)
-        thread_user.user
-      else
-        last_message_for(current_user).user
-      end
+    if users.count == 2
+      users.without(current_user).first
     else
-      last_message_for(current_user).user
+      users.without(current_user).joins('LEFT OUTER JOIN messages ON messages.user_id = users.id').order('messages.created_at DESC').first
     end
   end
 
-  
 end
