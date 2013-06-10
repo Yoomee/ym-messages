@@ -1,7 +1,7 @@
 module YmMessages::MessagesHelper
 
   def day(message)
-    message.created_at.strftime("%d %b")
+    message.created_at.strftime('%d %b')
   end
 
   def switch_text(user)
@@ -19,7 +19,7 @@ module YmMessages::MessagesHelper
   end
   
   def time(message)
-    message.created_at.strftime("%H:%M")
+    message.created_at.strftime('%H:%M')
   end
   
   
