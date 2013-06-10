@@ -5,3 +5,4 @@ module YmMessages
 end
 
 Dir[File.dirname(__FILE__) + '/ym_messages/models/*.rb'].each {|file| require file }
+Dir[File.dirname(__FILE__) + '/ym_messages/controllers/*.rb'].each {|file| require file }
