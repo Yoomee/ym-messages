@@ -8,15 +8,15 @@ module YmMessages::MessageThreadUser
   end
   
   def set_unread!
-    update_attribute(:not_read, true)
+    update_attribute(:read, false)
   end
   
   def set_read!
-    update_attribute(:not_read, false)
+    update_attribute(:read, true)
   end
   
   def self.unread_message_count_for_user(user_id)
-    self.class.where("user_id = #{user_id} AND not_read = 1").count
+    self.class.where(:user_id => user_id, :read => false).count
   end
   
 end

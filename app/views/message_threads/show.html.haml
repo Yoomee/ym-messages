@@ -10,7 +10,7 @@
 .messages-wrap.span8.offset2
   .messages-header
     %h2.messages-title
-      =@message_thread.participants.without(current_user).collect(&:to_s).to_sentence
+      =@message_thread.users.without(current_user).collect(&:to_s).to_sentence
   .all-messages-strip
     =link_to messages_path, :class=>"all-messages-link" do
       %i.icon-arrow-left
@@ -20,9 +20,9 @@
       =link_to "Show older messages", message_thread_path(@message_thread, :page => @messages.next_page), :remote => true, :class => "btn", :id => "more-messages-btn"
     .message-inner
       =render 'message_threads/messages', :messages => @messages
-  - users_without_messaging = @message_thread.participants - Message.valid_recipients_for_user(current_user)
-  - users_without_messaging.delete(current_user) if !current_user.no_private_messages? || @message_thread.participants.without(current_user) == [User.elephant]  
-  -if users_without_messaging.empty?
+  - users_without_messaging = @message_thread.users - Message.valid_recipients_for_user(current_user)
+  - users_without_messaging.delete(current_user) if !current_user.no_private_messaging?
+  -if current_user.has_private_messaging? && @message_thread.users_with_messaging.count > 1
     .reply-box
       .reply-box-inner
         .reply-form
@@ -34,6 +34,9 @@
     .clearfix
     .alert
       You can't reply at the moment because
-      =users_without_messaging.collect{|u| nickname_or_you(u)}.to_sentence
-      =(users_without_messaging.count > 1 || users_without_messaging == [current_user]) ? 'have' : 'has'
+      -if current_user.has_private_messaging?
+        =@message_thread.users_without_messaging.without(current_user).collect(&:first_name).to_sentence
+        =@message_thread.users_without_messaging.without(current_user).count == 1 ? 'has' : 'have'
+      -else
+        you have
       disabled private messaging.

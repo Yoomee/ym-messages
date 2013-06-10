@@ -6,6 +6,8 @@ module YmMessages::MessageThread
     base.has_many :messages, :order => 'messages.created_at', :dependent => :destroy
     base.has_many :thread_users, :dependent => :destroy, :class_name => 'MessageThreadUser'
     base.has_many :users, :through => :thread_users
+    base.has_many :users_with_messaging, :through => :thread_users, :source => :user, :conditions => { :users => { :no_private_messaging => false } }
+    base.has_many :users_without_messaging, :through => :thread_users, :source => :user, :conditions => { :users => { :no_private_messaging => true } }
 
     base.scope :message_threads, base.joins(:messages).group('message_threads.id').order("updated_at DESC")
 

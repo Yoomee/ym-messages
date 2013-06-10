@@ -6,4 +6,8 @@ module YmMessages::UserExt
     base.has_many(:messages, :dependent => :destroy)
   end
 
+  def has_private_messaging?
+    !no_private_messaging?
+  end
+
 end
