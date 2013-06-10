@@ -2,10 +2,10 @@
   :javascript
     $(document).ready(function(){
       $('#message-switch-btn').click(function(){
-        $(this).html("Loading...");
+        $(this).html('Loading...');
       });
       $('#more-message-threads-btn').click(function(){
-        $(this).html("Loading...");
+        $(this).html('Loading...');
       });
     });
     
@@ -14,20 +14,20 @@
     .messages-header
       %h2.messages-title
         Private messages
-      =link_to new_message_path, :class=>"new-message-btn btn" do
+      =link_to new_message_path, :class=>'new-message-btn btn' do
         %i.icon-plus
         New message   
     .messages-list-wrap
       -if @message_threads.empty?
         %span.no-messages
           %p.mt-1 You have no messages.
-          =image_tag "ym_messages/write-message.png", :class=>"write-message"
+          =image_tag 'ym_messages/write-message.png', :class=>'write-message'
       -else
         %ul.messages-list.unstyled
           =render 'message_threads/message_threads', :message_threads => @message_threads
           
         -if @message_threads.next_page
-          =link_to "Show more", message_threads_path(:page => @message_threads.next_page), :remote => true, :class => "btn", :id => "more-message-threads-btn"
+          =link_to 'Show more', message_threads_path(:page => @message_threads.next_page), :remote => true, :class => 'btn', :id => 'more-message-threads-btn'
 .row-fluid.message-switch
   .span8.offset2
     %p#message-switch-text.pull-left

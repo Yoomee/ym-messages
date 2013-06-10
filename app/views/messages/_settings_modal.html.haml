@@ -3,11 +3,11 @@
 #message-settings-modal.modal.hide
   =semantic_form_for(user, :url => update_settings_user_messages_path(user), :remote => true, :html => {:class => 'mb-0 form-horizontal message-settings'}) do |form|
     .modal-header
-      =link_to("x", "#", :class => 'close', :data => {:dismiss => "modal"})
+      =link_to('x', '#', :class => 'close', :data => {:dismiss => 'modal'})
       %h3 Message settings
     .modal-body
       =form.input :no_private_messaging, :as => :radio, :label => 'Private messaging', :collection => [['On', false], ['Off', true]]
       =form.input :email_for_new_message, :as => :radio, :label => 'Send me an email when I receive a new message', :collection => [['On', true], ['Off', false]]
     .modal-footer
-      =link_to("Close", "#", :class => 'cancel btn', :data => {:dismiss => "modal"})
+      =link_to('Close', '#', :class => 'cancel btn', :data => {:dismiss => 'modal'})
       =form.submit 'Save', :class => 'btn btn-primary'

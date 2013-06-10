@@ -1,6 +1,6 @@
 .message{:id => message_on_date.id}
-  =link_to message_on_date.user, :class=>"message-user-photo" do
-    =image_for(message_on_date.user, "60x60#")
+  =link_to message_on_date.user, :class=>'message-user-photo' do
+    =image_for(message_on_date.user, '60x60#')
     %h3.message-user-name
       =link_to message_on_date.user, message_on_date.user
     %span.message-time
