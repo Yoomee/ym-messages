@@ -5,8 +5,16 @@ module YmMessages::MessageThreadUser
         
     base.belongs_to :message_thread
     base.belongs_to :user, :class_name => "User"
+
+    base.extend(ClassMethods)
   end
-  
+
+  module ClassMethods
+    def unread_message_count_for_user(user_id)
+      self.where(:user_id => user_id, :read => false).count
+    end
+  end
+
   def set_unread!
     update_attribute(:read, false)
   end
@@ -15,8 +23,5 @@ module YmMessages::MessageThreadUser
     update_attribute(:read, true)
   end
   
-  def self.unread_message_count_for_user(user_id)
-    self.class.where(:user_id => user_id, :read => false).count
-  end
   
 end
