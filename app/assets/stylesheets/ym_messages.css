@@ -267,14 +267,7 @@ input.to-box {
 .count-badge {
   display: block;
   float: left;
-  background: #ef1c1c; /* Old browsers */
-  background: -moz-linear-gradient(top,  #ef1c1c 0%, #db1617 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ef1c1c), color-stop(100%,#db1617)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  #ef1c1c 0%,#db1617 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  #ef1c1c 0%,#db1617 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  #ef1c1c 0%,#db1617 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  #ef1c1c 0%,#db1617 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef1c1c', endColorstr='#db1617',GradientType=0 ); /* IE6-9 */
+  background: #ef1c1c;
   color: #fff;
   line-height: 12px;
   font-weight: 600;
