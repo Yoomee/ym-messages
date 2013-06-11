@@ -107,7 +107,6 @@ h3.message-user-name {
 .all-messages-strip {
   float: left;
   width: 100%;
-
 }
 .message-show {
   float: left;
@@ -121,7 +120,7 @@ h3.message-user-name {
   text-decoration: none;
 }
 .message-inner {
-  margin: 20px;
+  margin: 20px 0;
   float: left;
 }
 .message {
@@ -129,8 +128,6 @@ h3.message-user-name {
   clear: both;
   margin: 0 40px 20px 80px;
   padding: 0 0 10px;
-  width: 460px;
-
   position: relative;
 }
 form#new_message {
@@ -182,7 +179,7 @@ form#new_message {
   
 }
 #message_recipient_ids{
-  width:100%;
+  width: 100%;
 }
 #message_recipient_ids_chzn ul{
   background-color: #ffffff;
@@ -198,10 +195,12 @@ form#new_message {
   -o-transition: border linear .2s, box-shadow linear .2s;
   transition: border linear .2s, box-shadow linear .2s;
 }
-.reply-field{
+.reply-field {
   width: 98%;
   float: right;
   margin: 0 0 10px;
+  padding-left: 1%;
+  padding-right: 1%;  
 }
 #new-message-popup .reply-field {
   height: 100px;
