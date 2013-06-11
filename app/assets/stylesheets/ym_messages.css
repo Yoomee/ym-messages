@@ -199,7 +199,7 @@ form#new_message {
   transition: border linear .2s, box-shadow linear .2s;
 }
 .reply-field{
-  width: 98%;
+  width: 96%;
   float: right;
   margin: 0 0 10px;
 }
