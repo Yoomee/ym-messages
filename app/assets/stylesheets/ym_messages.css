@@ -29,10 +29,6 @@ h2.messages-title {
   height: 200px;
   display: block;
  }
-.write-message {
- float: right;
- margin: -30px 30px 0; 
-}
 a#new-message-btn, a#new-message-btn:hover {
   float: right;
   margin: 15px;
