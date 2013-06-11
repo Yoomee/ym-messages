@@ -10,4 +10,8 @@ module YmMessages::UserExt
     !no_private_messaging?
   end
 
+  def unread_message_count
+    MessageThreadUser.unread_message_count_for_user(id)
+  end
+
 end
