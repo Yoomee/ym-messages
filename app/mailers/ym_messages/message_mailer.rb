@@ -1,4 +1,4 @@
-class YmMessages::UserMailer < ActionMailer::Base
+class YmMessages::MessageMailer < ActionMailer::Base
   helper YmCore::UrlHelper
 
   default :from => Settings.site_email
