@@ -26,7 +26,7 @@
           =render 'message_threads/message_threads', :message_threads => @message_threads
           
         -if @message_threads.next_page
-          =link_to 'Show more', message_threads_path(:page => @message_threads.next_page), :remote => true, :class => 'btn', :id => 'more-message-threads-btn'
+          =link_to 'Show more', action_name.all? ? all_message_threads_path(:page => @message_threads.next_page) : message_threads_path(:page => @message_threads.next_page), :remote => true, :class => 'btn', :id => 'more-message-threads-btn'
 .row-fluid.message-switch
   .span8.offset2
     %p#message-switch-text.pull-left

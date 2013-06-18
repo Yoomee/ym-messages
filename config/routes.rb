@@ -9,7 +9,12 @@ Rails.application.routes.draw do
       end
     end
   end
-
-  resources :message_threads, :only => [:index, :show], :path => 'messages'
+  
+  resources :message_threads, :only => [:index, :show], :path => 'messages' do 
+    collection do
+      match 'all'
+    end
+  end
+  
 
 end

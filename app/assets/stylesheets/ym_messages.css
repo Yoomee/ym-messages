@@ -53,6 +53,10 @@ ul.messages-list {
   background: #FFF7D9;
 }
 
+body.action_all .message-list-item.unread {
+  background: none;
+}
+
 .message-list-item:hover {
   text-decoration: none;
   background: #fafafa;

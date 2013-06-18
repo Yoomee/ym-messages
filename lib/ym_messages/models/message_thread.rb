@@ -35,15 +35,15 @@ module YmMessages::MessageThread
   end
 
   def set_read!(user)
-    thread_users.where(:user_id => user.id).first.set_read!
+    thread_users.where(:user_id => user.id).first.try(:set_read!)
   end
 
   def set_unread!(user)
-    thread_users.where(:user_id => user.id).first.set_unread!
+    thread_users.where(:user_id => user.id).first.try(:set_unread!)
   end
 
   def is_unread?(user)
-    !thread_users.where(:user_id => user.id).first.read?
+    !thread_users.where(:user_id => user.id).first.try(:read?)
   end
 
   def user_for_last_message(current_user)
