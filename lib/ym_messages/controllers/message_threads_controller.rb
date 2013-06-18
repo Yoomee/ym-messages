@@ -5,11 +5,11 @@ module YmMessages::MessageThreadsController
   end
   
   def all
-    @message_threads = MessageThread.order('updated_at DESC').paginate(:per_page => 1, :page => params[:page])
+    @message_threads = MessageThread.order('updated_at DESC').paginate(:per_page => 50, :page => params[:page])
   end
 
   def index
-    @message_threads = current_user.threads.order('updated_at DESC').paginate(:per_page => 1, :page => params[:page])
+    @message_threads = current_user.threads.order('updated_at DESC').paginate(:per_page => 50, :page => params[:page])
   end
   
   def show
