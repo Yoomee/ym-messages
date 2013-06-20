@@ -15,8 +15,7 @@ module YmMessages::MessageThreadsController
   def show
     @message_thread.set_read!(current_user)
     @messages = @message_thread.messages.reorder('messages.created_at DESC').paginate(:per_page => 10, :page => params[:page])
-    @messages = @messages.reverse
-    @last_message = @messages.last
+    @last_message = @messages.first
   end
 
 end

@@ -1,4 +1,4 @@
-$('.message-inner').prepend('<%=escape_javascript(render('message_threads/messages', :messages => @messages))%>').removeClass('loading');
+$('.message-inner').prepend('<%=escape_javascript(render('message_threads/messages', :messages => @messages.reverse))%>').removeClass('loading');
 
 <%if @messages.next_page%>
   $('#more-messages-btn').replaceWith('<%=escape_javascript(link_to "Show older messages", message_thread_path(@message_thread, :page => @messages.next_page), :remote => true, :class => "btn", :id => "more-messages-btn")%>'); 
