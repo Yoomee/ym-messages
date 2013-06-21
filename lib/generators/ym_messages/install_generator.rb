@@ -17,7 +17,7 @@ module YmMessages
         tabbed_space = "\n      "
         if should_add_abilities?('Message')
           add_ability(:user, 'can :new, Message')
-          add_ability(:user, "can :create, Message do |message| #{tabbed_space}  (message.thread.try(:users) || []).none?(&:no_private_messaging?)#{tabbed_space}end")
+          add_ability(:user, "can :create, Message do |message| #{tabbed_space}  message.thread && (message.thread.users - [user] - Message.valid_recipients_for_user(user)).empty?#{tabbed_space}end")
         end
         if should_add_abilities?('MessageThread')
           add_ability(:user, 'can :index, MessageThread')

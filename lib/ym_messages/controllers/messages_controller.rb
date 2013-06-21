@@ -21,9 +21,8 @@ module YmMessages::MessagesController
   
   def new
     if params[:user_id].present? && recipient = User.find_by_id(params[:user_id])
-      thread = MessageThread.find_or_initialize_by_user_ids([current_user.id,recipient.id])
-      if !thread.new_record?
-        @message_thread = thread
+      @message_thread = MessageThread.find_or_initialize_by_user_ids([current_user.id,recipient.id])
+      if !@message_thread.new_record?
         @message = @message_thread.messages.build
         @messages = @message_thread.messages.reorder('messages.created_at DESC').paginate(:per_page => 10, :page => params[:page]).reverse
         @last_message = @messages.last
@@ -31,6 +30,8 @@ module YmMessages::MessagesController
       else
         @message.recipient_ids = [recipient.id.to_s]
       end
+      @message.thread = @message_thread
+      authorize! :create, @message 
     end
   end
 
