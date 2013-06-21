@@ -8,10 +8,11 @@ module YmMessages::Message
 
     base.send(:attr_accessor, :recipient_ids)
 
-    base.before_save :set_thread
+    base.before_validation :set_thread, :on => :create
+    base.before_create :read_thread!
     base.after_create :send_emails
 
-    base.validates :text, :presence => true
+    base.validates :text, :thread, :user, :presence => true
 
     base.extend(ClassMethods)
   end
@@ -32,10 +33,14 @@ module YmMessages::Message
   end
 
   def set_thread
-    if thread.nil?
-      self.thread = MessageThread.find_or_create_by_user_ids(user_id, recipient_ids.map(&:to_i))
-      thread.set_read!(user)
+    if user_id.present? && recipient_ids.present?
+      self.thread ||= MessageThread.find_or_initialize_by_user_ids(user_id, recipient_ids.map(&:to_i))
     end
+  end
+  
+  def read_thread!
+    thread.save if thread.new_record?
+    thread.set_read!(user)
   end
 
 end
