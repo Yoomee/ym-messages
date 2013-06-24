@@ -3,7 +3,7 @@ module YmMessages::Message
   def self.included(base)
     base.send(:include, YmCore::Model)
 
-    base.belongs_to :thread, :class_name => 'MessageThread', :foreign_key => :message_thread_id, :touch => true
+    base.belongs_to :thread, :class_name => 'MessageThread', :foreign_key => :message_thread_id, :validate => true, :touch => true
     base.belongs_to :user
 
     base.send(:attr_accessor, :recipient_ids)
