@@ -86,10 +86,8 @@ h3.message-user-name {
 }
 .message-summary {
   color: #999;
-  float: left;
   display: block;
   margin: 0;
-  width: 75%;
   height: 20px;
   overflow: hidden;
 }
