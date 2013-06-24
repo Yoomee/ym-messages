@@ -77,17 +77,13 @@ body.action_all .message-list-item.unread {
   width: 60px;
 }
 h3.message-user-name {
-  float: left;
   font-size: 18px;
-  margin: 8px 0 3px;
+  margin: 8px 0px 3px;
   line-height: 1;
-  width: 100%;
-  
-    width: 75%;
-  height: 22px;
-  overflow: hidden;
 }
-
+.message h3.message-user-name {
+  margin: 0px 0px 8px;
+}
 .message-summary {
   color: #999;
   float: left;
@@ -104,8 +100,10 @@ h3.message-user-name {
   color: #999;
 }
 .message .message-time {
-  top: 0px;
-  right: -40px;
+  position:relative;
+  top:auto;
+  right:auto;
+  float:right;
 }
 
 .all-messages-strip {
@@ -128,11 +126,8 @@ h3.message-user-name {
   float: left;
 }
 .message {
-  float: left;
-  clear: both;
-  margin: 0 40px 20px 80px;
+  margin-bottom: 20px;
   padding: 0 0 10px;
-  position: relative;
 }
 form#new_message {
   margin-left: 0;
@@ -141,32 +136,23 @@ form#new_message {
   margin: 0;
 }
 .message .message-user-photo {
-  position: absolute;
-  margin: 0;
-  top: 10px;
-  left: -80px;
 }
 .message-body {
-  float: left;
-  clear: both;
 }
 .date-divider {
-  float: left;
-  width: 100%;
-  margin: 0 0 20px;
-  position: relative;
+  text-align: center;
+  margin-bottom:10px;
 }
 .date-divider-line {
   border-top: 1px solid #ccc;
   float: left;
   width: 100%;
-  margin: 10px 0 0;
 }
 .message-date {
   color: #999;
   background: #fff;
-  position: absolute;
-  left: 40%;
+  position: relative;
+  top:-12px;
   padding: 0 5px;
 }
 
