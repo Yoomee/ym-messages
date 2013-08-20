@@ -34,7 +34,7 @@ module YmMessages::Message
 
   def set_thread
     if user_id.present? && recipient_ids.present?
-      self.thread ||= MessageThread.find_or_initialize_by_user_ids(user_id, recipient_ids.map(&:to_i))
+      self.thread ||= MessageThread.find_or_initialize_by_user_ids(user_id, recipient_ids.reject(&:blank?).map(&:to_i))
     end
   end
   
