@@ -27,7 +27,7 @@
           =semantic_form_for(@message || Message.new(:thread => @message_thread)) do |form|
             =form.input :text, :label => false, :title => 'Reply', :input_html => {:rows => 6, :placeholder => 'Write a reply...', :class => 'reply-field', :autofocus => true }
             =form.input :message_thread_id, :as => :hidden
-            =form.commit_button 'Reply', :button_html => {:class => 'btn btn-primary message-reply-btn', :'data-loading-text' => 'Sending...'}
+            =form.submit 'Reply', :class => 'btn btn-primary message-reply-btn', :'data-loading-text' => 'Sending...'
   -else
     .clearfix
     .alert
