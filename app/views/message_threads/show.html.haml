@@ -12,9 +12,12 @@
     %h2.messages-title
       =@message_thread.users.without(current_user).collect(&:to_s).to_sentence
   .all-messages-strip
-    =link_to URI(request.referer).path == all_message_threads_path ? all_message_threads_path : messages_path, :class=>'all-messages-link' do
-      %i.icon-arrow-left
-      All messages
+    -if URI(request.referer).path == all_message_threads_path
+      =link_to('All messages', all_message_threads_path, :icon => 'arrow-left', :class=>'all-messages-link')
+    -elsif @user != current_user
+      =link_to('All messages', user_message_threads_path(@user), :icon => 'arrow-left', :class=>'all-messages-link')
+    -else
+      =link_to('All messages', message_threads_path, :icon => 'arrow-left', :class=>'all-messages-link')
   .message-show
     -if @messages.next_page
       =link_to 'Show older messages', message_thread_path(@message_thread, :page => @messages.next_page), :remote => true, :class => 'btn', :id => 'more-messages-btn'

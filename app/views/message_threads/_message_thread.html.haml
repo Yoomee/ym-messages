@@ -1,5 +1,5 @@
 %li
-  =link_to thread, :class=>"message-list-item #{unread_class(thread, current_user)}" do
+  =link_to ((@user == current_user) ? thread : user_message_thread_path(@user, thread)), :class=>"message-list-item #{unread_class(thread, current_user)}" do
     .message-summary-inner
       .message-user-photo
         =image_for(thread.user_for_last_message(current_user), "60x60#")
