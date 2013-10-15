@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         put 'update_settings'
       end
     end
+    resources :message_threads, :only => [:index, :show], :path => 'messages'
   end
   
   resources :message_threads, :only => [:index, :show], :path => 'messages' do 
