@@ -24,6 +24,14 @@ module YmMessages::Message
     end
   end
 
+  def recipient_id
+    recipient_ids.first
+  end
+
+  def recipient_id=(val)
+    self.recipient_ids = [val]
+  end
+
   private
   def send_emails
     thread.users.where('user_id != ?', user.id).each do |user|
