@@ -9,6 +9,8 @@ module YmMessages::MessageThread
     base.has_many :users_with_messaging, :through => :thread_users, :source => :user, :conditions => { :users => { :no_private_messaging => false } }
     base.has_many :users_without_messaging, :through => :thread_users, :source => :user, :conditions => { :users => { :no_private_messaging => true } }
 
+    base.send(:default_scope, base.order('updated_at DESC'))
+
     base.scope :message_threads, base.joins(:messages).group('message_threads.id').order("updated_at DESC")
 
     base.extend(ClassMethods)
