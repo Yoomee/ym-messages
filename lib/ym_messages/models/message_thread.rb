@@ -50,10 +50,11 @@ module YmMessages::MessageThread
 
   def user_for_last_message(current_user)
     if users.count == 2
-      users.without(current_user).first
+      u = users.without(current_user).first
     else
-      users.without(current_user).joins('LEFT OUTER JOIN messages ON messages.user_id = users.id').order('messages.created_at DESC').first
+      u = users.without(current_user).joins('LEFT OUTER JOIN messages ON messages.user_id = users.id').order('messages.created_at DESC').first
     end
+    u || current_user
   end
 
 end
