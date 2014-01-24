@@ -12,7 +12,7 @@ module YmMessages::Message
     base.before_create :read_thread!
     base.after_create :send_emails
 
-    base.validates :text, :thread, :user, :presence => true
+    base.validates :text, :thread, :user, :presence => true, :unless => :allow_text_to_be_blank?
 
     base.extend(ClassMethods)
   end
@@ -22,6 +22,10 @@ module YmMessages::Message
       return [] if user.no_private_messaging?
       User.without(user).where(:no_private_messaging => false)
     end
+  end
+
+  def allow_text_to_be_blank?
+    false
   end
 
   def recipient_id
