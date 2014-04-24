@@ -20,7 +20,7 @@ module YmMessages::Message
   module ClassMethods
     def valid_recipients_for_user(user)
       return [] if user.no_private_messaging?
-      User.without(user).where(:no_private_messaging => false)
+      User.without(user).with_private_messaging
     end
   end
 
