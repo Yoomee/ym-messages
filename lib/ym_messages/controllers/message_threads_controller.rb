@@ -6,7 +6,8 @@ module YmMessages::MessageThreadsController
   end
   
   def all
-    @message_threads = MessageThread.paginate(:per_page => 50, :page => params[:page])
+    @message_threads = MessageThread.joins(:messages).group('message_threads.id').paginate(:per_page => 50, :page => params[:page])
+    @user = current_user
   end
 
   def index
