@@ -1,5 +1,5 @@
 module YmMessages::UserExt
-  
+
   def self.included(base)
     base.has_many(:thread_users, :class_name => 'MessageThreadUser', :foreign_key => :user_id, :dependent => :destroy)
     base.has_many(:threads, :through => :thread_users, :source => :message_thread, :uniq => true)
@@ -12,7 +12,7 @@ module YmMessages::UserExt
   end
 
   def unread_message_count
-    MessageThreadUser.unread_message_count_for_user(id)
+    ::MessageThreadUser.unread_message_count_for_user(id)
   end
 
 end
